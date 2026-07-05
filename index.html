@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Daffa Andhika K. — Print Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+    /* ==========================================================================
+       PRINT PORTFOLIO — 16 HAL A4 LANDSCAPE (COMPLETE STYLES)
+       Clean Professional Edition — Daffa Andhika | Dhagtaa.Studio
+       ========================================================================== */
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --ink:        #0D0F14;
+        --ink-soft:   #1C2030;
+        --ink-muted:  #4A5568;
+        --ink-light:  #8896A8;
+        --paper:      #F8F9FB;
+        --paper-warm: #FFFFFF;
+        --rule:       #E8ECF0;
+        --red:    #D4163C;
+        --orange: #E8620A;
+        --grad:   linear-gradient(125deg, #D4163C 0%, #E8620A 100%);
+        --f-display: 'Syne', sans-serif;
+        --f-body:    'Plus Jakarta Sans', sans-serif;
+    }
+
+    html { background: #CDD2DA; font-family: var(--f-body); }
+    body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    /* ── BASE PAGE SETUP (A4 LANDSCAPE) ── */
+    .page {
+        width: 297mm;
+        height: 210mm;
+        background: var(--paper-warm);
+        margin: 8mm auto;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+
+    @media print {
+        html, body { background: none; }
+        .page { margin: 0; page-break-after: always; break-after: page; box-shadow: none; }
+        .page:last-child { page-break-after: avoid; }
+        @page { size: A4 landscape; margin: 0; }
+    }
+
+    /* ── GLOBAL COMPONENTS ── */
+    .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6mm 14mm;
+        border-bottom: 1px solid var(--rule);
+        flex-shrink: 0;
+    }
+    .page-tag { font-size: 7pt; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); display: flex; align-items: center; gap: 3mm; }
+    .page-tag::before { content: ''; width: 2mm; height: 5mm; background: var(--grad); border-radius: 1mm; }
+    .page-num { font-family: var(--f-display); font-size: 11pt; font-weight: 800; color: var(--ink-light); }
+    .page-content { flex: 1; padding: 10mm 14mm; position: relative; overflow: hidden; }
+    .page-content-center { display: flex; align-items: center; justify-content: center; }
+    
+    .section-h2 { font-family: var(--f-display); font-size: 24pt; font-weight: 800; color: var(--ink); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5mm; }
+    .section-sub { font-size: 9pt; color: var(--ink-light); margin-bottom: 8mm; }
+
+    /* ── PAGE 1: COVER ── */
+    .page-cover { background: var(--ink); color: #FFFFFF; justify-content: space-between; padding: 14mm; }
+    .cover-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 12mm 12mm; pointer-events: none; }
+    .cover-accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 4mm; background: var(--grad); }
+    .cover-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
+    .cover-tag { font-size: 7.5pt; font-weight: 700; letter-spacing: 0.3em; color: var(--orange); }
+    .cover-name-wrap { display: flex; align-items: flex-start; gap: 10mm; margin-top: 15mm; }
+    .cover-name { font-family: var(--f-display); font-size: 52pt; font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; }
+    .cover-name span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .cover-divider-v { width: 1px; height: 45mm; background: rgba(255,255,255,0.1); align-self: center; }
+    .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm; }
+    .cover-meta-item { display: flex; flex-direction: column; gap: 1mm; }
+    .cover-meta-label { font-size: 6pt; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; }
+    .cover-meta-val { font-size: 9pt; font-weight: 600; color: rgba(255,255,255,0.8); }
+    .cover-tagline { font-size: 10pt; font-style: italic; color: rgba(255,255,255,0.5); border-left: 3px solid var(--red); padding-left: 4mm; margin-top: 8mm; max-width: 120mm; }
+    .cover-deco-num { position: absolute; right: 0; bottom: 0; font-family: var(--f-display); font-size: 130pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.08; line-height: 1; }
+    .cover-bottom-bar { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 5mm; font-size: 8pt; color: rgba(255,255,255,0.4); z-index: 2; }
+
+    /* ── PAGE 2: PROFILE ── */
+    .profile-grid { display: grid; grid-template-columns: 75mm 1fr; gap: 12mm; height: 100%; }
+    .profile-left { background: var(--paper); border-radius: 4mm; padding: 6mm; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--rule); }
+    .profile-avatar { position: relative; width: 26mm; height: 26mm; margin: 0 auto 4mm; }
+    .avatar-inner { width: 100%; height: 100%; background: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24pt; color: var(--red); border: 1px solid var(--rule); z-index: 2; position: relative; }
+    .avatar-ring { position: absolute; inset: -3px; background: var(--grad); border-radius: 50%; z-index: 1; opacity: 0.7; }
+    .profile-contact-list { display: flex; flex-direction: column; gap: 3mm; margin-bottom: 4mm; }
+    .pcontact-item { display: flex; align-items: center; gap: 3mm; font-size: 8pt; color: var(--ink-muted); }
+    .pcontact-item i { color: var(--red); width: 4mm; text-align: center; }
+    .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; border-top: 1px solid var(--rule); padding-top: 4mm; text-align: center; }
+    .pstat-num { display: block; font-family: var(--f-display); font-size: 16pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .pstat-lbl { font-size: 6pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; margin-top: 1mm; display: block; }
+    .profile-right { display: flex; flex-direction: column; justify-content: center; }
+    .profile-role { font-size: 10pt; font-weight: 700; color: var(--orange); margin-bottom: 4mm; }
+    .profile-bio { font-size: 9pt; color: var(--ink-muted); line-height: 1.7; margin-bottom: 4mm; text-align: justify; }
+    .philosophy-box { background: var(--paper); border-left: 3px solid var(--red); padding: 4mm 5mm; border-radius: 0 4mm 4mm 0; margin: 2mm 0 6mm; position: relative; }
+    .philosophy-quote-mark { font-family: var(--f-display); font-size: 36pt; color: var(--red); opacity: 0.1; position: absolute; left: 2mm; top: -2mm; line-height: 1; }
+    .philosophy-text { font-size: 9pt; font-style: italic; color: var(--ink-soft); font-weight: 500; line-height: 1.6; }
+    .philosophy-attr { font-size: 7pt; font-weight: 700; color: var(--ink-light); margin-top: 2mm; text-transform: uppercase; }
+    .profile-badges { display: flex; gap: 2.5mm; }
+    .pbadge { font-size: 7.5pt; font-weight: 700; background: #FFFFFF; border: 1px solid var(--rule); padding: 1.5mm 3.5mm; border-radius: 20mm; color: var(--ink-muted); display: flex; align-items: center; gap: 2mm; }
+    .pbadge i { color: var(--orange); }
+
+    /* ── PAGE 3: SKILLS ── */
+    .skills-list { display: flex; flex-direction: column; gap: 4.5mm; margin-bottom: 8mm; }
+    .skill-item { background: var(--paper); border: 1px solid var(--rule); padding: 4mm; border-radius: 3mm; }
+    .skill-head { display: flex; align-items: center; gap: 4mm; margin-bottom: 2.5mm; }
+    .skill-icon-wrap { width: 9mm; height: 9mm; background: #FFFFFF; border-radius: 2mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 12pt; color: var(--red); }
+    .skill-head div { flex: 1; }
+    .skill-head h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 0.5mm; }
+    .skill-head p { font-size: 8pt; color: var(--ink-muted); }
+    .skill-pct-badge { font-family: var(--f-display); font-size: 11pt; font-weight: 800; color: var(--orange); }
+    .skill-bar-wrap { width: 100%; height: 2mm; background: var(--rule); border-radius: 10mm; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: var(--grad); border-radius: 10mm; }
+    .tools-section { border-top: 1px solid var(--rule); padding-top: 5mm; }
+    .tools-title { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); margin-bottom: 4mm; }
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+    .tool-card { background: #FFFFFF; border: 1px solid var(--rule); padding: 3mm 4mm; border-radius: 3mm; display: flex; align-items: center; gap: 4mm; }
+    .tool-icon { width: 10mm; height: 10mm; border-radius: 2mm; display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 800; font-size: 13pt; color: #FFFFFF; }
+    .figma-bg { background: #F24E1E; }
+    .ai-bg { background: #FF9A00; }
+    .ps-bg { background: #00A4FF; }
+    .tool-name { font-size: 9.5pt; font-weight: 700; color: var(--ink); flex: 1; }
+    .tool-use { font-size: 7.5pt; color: var(--ink-light); }
+
+    /* ── PAGE 4: PROCESS ── */
+    .process-list { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 8mm; position: relative; }
+    .process-item { display: flex; flex-direction: column; align-items: center; text-align: center; width: 44mm; position: relative; z-index: 2; }
+    .process-num-box { font-family: var(--f-display); font-size: 9pt; font-weight: 800; color: var(--orange); background: var(--paper); border: 1px solid var(--rule); padding: 1mm 3mm; border-radius: 10mm; margin-bottom: 3mm; }
+    .process-icon-box { width: 14mm; height: 14mm; background: #FFFFFF; border: 2px solid var(--rule); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14pt; color: var(--red); margin-bottom: 4mm; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .process-item h3 { font-size: 10pt; font-weight: 700; color: var(--ink); margin-bottom: 2mm; }
+    .process-item p { font-size: 7.5pt; color: var(--ink-muted); line-height: 1.6; }
+    .process-connector-v { flex: 1; height: 2px; background: var(--rule); margin-top: 18mm; position: relative; z-index: 1; }
+
+    /* ── PAGE 5: GALLERY INTRO ── */
+    .gallery-intro { display: grid; grid-template-columns: 1fr 1.2fr; gap: 12mm; align-items: center; width: 100%; }
+    .gallery-intro-num { font-family: var(--f-display); font-size: 110pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.15; line-height: 0.8; }
+    .gallery-intro-title { font-family: var(--f-display); font-size: 32pt; font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -0.03em; margin-bottom: 4mm; }
+    .gallery-intro-title span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .gallery-intro-sub { font-size: 10pt; color: var(--ink-muted); line-height: 1.7; }
+    .gallery-index { display: flex; flex-direction: column; gap: 3mm; background: var(--paper); padding: 6mm; border-radius: 4mm; border: 1px solid var(--rule); }
+    .gi-item { display: flex; align-items: center; justify-content: space-between; font-size: 8.5pt; border-bottom: 1px dashed var(--rule); padding-bottom: 2mm; }
+    .gi-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .gi-num { font-family: var(--f-display); font-weight: 700; color: var(--red); }
+    .gi-tool { font-size: 7.5pt; color: var(--ink-light); background: #FFFFFF; padding: 0.5mm 2mm; border-radius: 10mm; border: 1px solid var(--rule); }
+
+    /* ── PAGE 6-9: PROJECT DETAILS ── */
+    .project-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10mm; height: 100%; align-items: center; }
+    .project-layout-reverse { grid-template-columns: 1fr 1.2fr; }
+    .project-img-area { position: relative; height: 125mm; background: var(--paper); border-radius: 4mm; overflow: hidden; border: 1px solid var(--rule); }
+    .project-img-area img { width: 100%; height: 100%; object-fit: cover; }
+    .project-img-caption { position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 4mm; color: #FFFFFF; font-size: 8pt; font-style: italic; }
+    .project-info { display: flex; flex-direction: column; }
+    .project-cat-tag { font-size: 7pt; font-weight: 700; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2mm; }
+    .project-title { font-family: var(--f-display); font-size: 26pt; font-weight: 800; color: var(--ink); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 4mm; }
+    .project-desc { font-size: 9pt; color: var(--ink-muted); line-height: 1.7; margin-bottom: 5mm; text-align: justify; }
+    .project-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; background: var(--paper); padding: 4mm; border-radius: 3mm; border: 1px solid var(--rule); margin-bottom: 5mm; }
+    .pmeta-item { display: flex; flex-direction: column; gap: 0.5mm; font-size: 8.5pt; color: var(--ink); }
+    .pmeta-label { font-size: 6.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; }
+    .project-insight { border-top: 2px dashed var(--rule); padding-top: 4mm; }
+    .project-insight h4 { font-size: 9pt; font-weight: 700; color: var(--ink); margin-bottom: 1.5mm; }
+    .project-insight p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; }
+
+    /* ── PAGE 10: GALLERY THUMBNAIL ── */
+    .thumb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; margin-top: 4mm; }
+    .thumb-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 3mm; overflow: hidden; display: flex; flex-direction: column; }
+    .thumb-card img { width: 100%; height: 45mm; object-fit: cover; border-bottom: 1px solid var(--rule); }
+    .thumb-info { padding: 3.5mm; flex: 1; display: flex; flex-direction: column; position: relative; }
+    .thumb-num { font-family: var(--f-display); font-size: 24pt; font-weight: 800; color: var(--rule); position: absolute; right: 2mm; top: 0; line-height: 1; z-index: 1; }
+    .thumb-info h4 { font-size: 9pt; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 2mm; position: relative; z-index: 2; }
+    .thumb-tool { font-size: 7pt; color: var(--ink-light); text-transform: uppercase; font-weight: 600; margin-top: auto; }
+
+    /* ── PAGE 11: EXPLORATION ── */
+    .exploration-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6mm; height: 115mm; }
+    .exp-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 4mm; padding: 5mm; display: flex; flex-direction: column; }
+    .exp-wide { grid-row: span 2; justify-content: space-between; }
+    .exp-icon { width: 10mm; height: 10mm; background: #FFFFFF; border-radius: 2mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 12pt; color: var(--red); margin-bottom: 3mm; }
+    .exp-card h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 2mm; }
+    .exp-card p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; }
+    .exp-visual { display: flex; gap: 2mm; margin-top: 4mm; }
+    .color-swatch { flex: 1; height: 14mm; border-radius: 2mm; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); }
+    .typo-demo { background: #FFFFFF; border: 1px solid var(--rule); padding: 3.5mm; border-radius: 2mm; margin-top: 3mm; display: flex; flex-direction: column; gap: 2mm; }
+
+    /* ── PAGE 12: NIRMANA ── */
+    .nirmana-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 4mm; }
+    .nirmana-card { background: var(--paper); border: 1px solid var(--rule); padding: 5mm; border-radius: 4mm; display: flex; gap: 4mm; align-items: flex-start; }
+    .nirmana-icon { width: 12mm; height: 12mm; background: #FFFFFF; border-radius: 3mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 14pt; color: var(--orange); flex-shrink: 0; }
+    .nirmana-card h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 1.5mm; }
+    .nirmana-card p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; }
+
+    /* ── PAGE 13: EDUCATION ── */
+    .edu-timeline { display: flex; flex-direction: column; gap: 4mm; margin-top: 4mm; position: relative; }
+    .edu-item { display: flex; gap: 6mm; background: var(--paper); border: 1px solid var(--rule); padding: 4.5mm; border-radius: 4mm; position: relative; }
+    .edu-highlight { background: #FFFFFF; border-left: 4px solid var(--red); }
+    .edu-badge { width: 10mm; height: 10mm; background: var(--grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 10pt; flex-shrink: 0; }
+    .edu-badge-sm { background: var(--rule); color: var(--ink-light); font-size: 6pt; width: 8mm; height: 8mm; align-self: center; }
+    .edu-year-tag { font-family: var(--f-display); font-size: 8pt; font-weight: 700; color: var(--red); background: rgba(212,22,60,0.06); padding: 1mm 3mm; border-radius: 10mm; position: absolute; right: 5mm; top: 5mm; }
+    .edu-body { flex: 1; }
+    .edu-level { font-size: 7.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; margin-bottom: 0.5mm; }
+    .edu-body h3 { font-size: 12pt; font-weight: 800; color: var(--ink); margin-bottom: 1mm; }
+    .edu-major { font-size: 8.5pt; font-weight: 600; color: var(--orange); margin-bottom: 2mm; }
+    .edu-body p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; max-width: 220mm; }
+    .edu-subjects { display: flex; gap: 2mm; margin-top: 3mm; flex-wrap: wrap; }
+    .edu-subjects span { font-size: 7pt; font-weight: 600; background: var(--paper); border: 1px solid var(--rule); padding: 0.8mm 2.5mm; border-radius: 10mm; color: var(--ink-muted); }
+
+    /* ── PAGE 14: VALUES ── */
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; margin-bottom: 6mm; }
+    .value-card { background: var(--paper); border: 1px solid var(--rule); padding: 4.5mm; border-radius: 4mm; position: relative; }
+    .value-num { font-family: var(--f-display); font-size: 28pt; font-weight: 800; color: var(--rule); position: absolute; right: 4mm; top: 2mm; }
+    .value-icon { font-size: 14pt; color: var(--red); margin-bottom: 3mm; }
+    .value-card h3 { font-size: 10.5pt; font-weight: 700; color: var(--ink); margin-bottom: 1.5mm; }
+    .value-card p { font-size: 7.5pt; color: var(--ink-muted); line-height: 1.6; }
+    .values-quote { border-top: 1px solid var(--rule); padding-top: 5mm; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .values-quote i { font-size: 16pt; color: var(--orange); opacity: 0.3; margin-bottom: 2mm; }
+    .values-quote p { font-family: var(--f-display); font-size: 12pt; font-weight: 700; color: var(--ink-soft); max-width: 180mm; line-height: 1.4; margin-bottom: 1.5mm; }
+    .values-quote span { font-size: 8pt; color: var(--ink-light); font-weight: 600; }
+
+    /* ── PAGE 15: CONTACT ── */
+    .contact-center { width: 100%; max-width: 200mm; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .contact-intro-tag { font-size: 8pt; font-weight: 700; letter-spacing: 0.15em; color: var(--red); text-transform: uppercase; margin-bottom: 3mm; }
+    .contact-big-title { font-family: var(--f-display); font-size: 38pt; font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 4mm; }
+    .contact-big-title span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .contact-desc { font-size: 9.5pt; color: var(--ink-muted); line-height: 1.6; max-width: 140mm; margin-bottom: 6mm; }
+    .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; width: 100%; margin-bottom: 6mm; }
+    .ccard { background: var(--paper); border: 1px solid var(--rule); border-radius: 3mm; padding: 3.5mm 5mm; display: flex; align-items: center; gap: 4mm; text-align: left; }
+    .ccard-icon { width: 10mm; height: 10mm; background: #FFFFFF; border-radius: 50%; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 11pt; color: var(--orange); }
+    .ccard-label { font-size: 6.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; }
+    .ccard-val { font-size: 9pt; font-weight: 600; color: var(--ink); }
+    .contact-availability { display: flex; align-items: center; gap: 2.5mm; font-size: 8pt; font-weight: 600; color: var(--ink-muted); }
+    .avail-dot { width: 2mm; height: 2mm; background: #10B981; border-radius: 50%; box-shadow: 0 0 8px #10B981; }
+
+    /* ── PAGE 16: BACK COVER ── */
+    .page-backcover { background: var(--ink); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 14mm; }
+    .backcover-content { text-align: center; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+    .backcover-eyebrow { font-size: 7.5pt; font-weight: 700; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 6mm; }
+    .backcover-logo { font-family: var(--f-display); font-size: 36pt; font-weight: 800; letter-spacing: -0.02em; }
+    .backcover-logo span { color: var(--orange); }
+    .backcover-divider { width: 12mm; height: 1mm; background: var(--grad); border-radius: 2mm; margin: 5mm 0 8mm; }
+    .backcover-quote { font-family: var(--f-display); font-size: 14pt; font-weight: 700; color: rgba(255,255,255,0.8); line-height: 1.4; margin-bottom: 10mm; }
+    .backcover-info { display: flex; gap: 4mm; font-size: 9pt; color: rgba(255,255,255,0.4); margin-bottom: 6mm; }
+    .backcover-tools { display: flex; gap: 3mm; font-size: 8pt; font-weight: 600; color: var(--orange); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 2mm 5mm; border-radius: 20mm; }
+    .backcover-tools .sep { color: rgba(255,255,255,0.1); }
+    .backcover-deco-num { position: absolute; right: 14mm; bottom: 14mm; font-family: var(--f-display); font-size: 130pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.08; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<div class="page page-cover">
+    <div class="cover-bg-grid"></div>
+    <div class="cover-accent-bar"></div>
+    <div class="cover-content">
+        <div class="cover-tag">PORTOFOLIO DESAIN KOMUNIKASI VISUAL</div>
+        <div class="cover-name-wrap">
+            <h1 class="cover-name">Daffa<br>Andhika<br><span>Komul</span></h1>
+            <div class="cover-divider-v"></div>
+            <div class="cover-meta">
+                <div class="cover-meta-item">
+                    <span class="cover-meta-label">STUDIO</span>
+                    <span class="cover-meta-val">Dhagtaa.Studio</span>
+                </div>
+                <div class="cover-meta-item">
+                    <span class="cover-meta-label">JURUSAN</span>
+                    <span class="cover-meta-val">Desain Komunikasi Visual</span>
+                </div>
+                <div class="cover-meta-item">
+                    <span class="cover-meta-label">INSTITUSI</span>
+                    <span class="cover-meta-val">SMKN 71 Jakarta</span>
+                </div>
+                <div class="cover-meta-item">
+                    <span class="cover-meta-label">TAHUN</span>
+                    <span class="cover-meta-val">2026</span>
+                </div>
+            </div>
+        </div>
+        <div class="cover-tagline">Merancang solusi visual yang berbicara<br>lebih keras dari kata-kata.</div>
+        <div class="cover-deco-num">01</div>
+    </div>
+    <div class="cover-bottom-bar">
+        <span>daffa1juli2008@gmail.com</span>
+        <span>Jakarta, Indonesia</span>
+        <span>instagram: @tyraen__</span>
+    </div>
+</div>
+
+<div class="page page-profile">
+    <div class="page-header">
+        <span class="page-tag">PROFIL</span>
+        <span class="page-num">02</span>
+    </div>
+    <div class="page-content">
+        <div class="profile-grid">
+            <div class="profile-left">
+                <div class="profile-avatar">
+                    <div class="avatar-inner">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="avatar-ring"></div>
+                </div>
+                <div class="profile-contact-list">
+                    <div class="pcontact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>daffa1juli2008@gmail.com</span>
+                    </div>
+                    <div class="pcontact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="pcontact-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>@tyraen__</span>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="pstat">
+                        <span class="pstat-num">3+</span>
+                        <span class="pstat-lbl">Tahun Eksplorasi</span>
+                    </div>
+                    <div class="pstat">
+                        <span class="pstat-num">20+</span>
+                        <span class="pstat-lbl">Koleksi Desain</span>
+                    </div>
+                    <div class="pstat">
+                        <span class="pstat-num">3</span>
+                        <span class="pstat-lbl">Tools Dikuasai</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-right">
+                <h2 class="section-h2">Daffa Andhika Komul</h2>
+                <p class="profile-role">Visual Communication Designer · DKV Student</p>
+                <p class="profile-bio">
+                    Sebagai pelajar Desain Komunikasi Visual (DKV), saya tidak sekadar menggambar atau membuat elemen estetis. Saya merancang solusi visual, menyusun identitas, dan merangkai narasi rupa yang mampu menyampaikan pesan secara kuat, instan, dan membekas di ingatan audiens.
+                </p>
+                <p class="profile-bio">
+                    Ketertarikan saya dalam mengolah elemen seni, memahami psikologi warna, mendalami struktur tipografi, serta merangkai tata letak layout membawa saya untuk focus mendalami pilar-pilar penting industri kreatif modern.
+                </p>
+                <div class="philosophy-box">
+                    <div class="philosophy-quote-mark">"</div>
+                    <p class="philosophy-text">Desain yang baik adalah komunikasi yang jujur. Siapa pun yang melihat karya kita harus langsung paham pesannya tanpa perlu banyak penjelasan teks.</p>
+                    <div class="philosophy-attr">— Filosofi Desain Saya</div>
+                </div>
+                <div class="profile-badges">
+                    <span class="pbadge"><i class="fa-solid fa-palette"></i> Branding</span>
+                    <span class="pbadge"><i class="fa-solid fa-pen-nib"></i> Ilustrasi</span>
+                    <span class="pbadge"><i class="fa-solid fa-layer-group"></i> Layout</span>
+                    <span class="pbadge"><i class="fa-solid fa-display"></i> UI/UX</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-skills">
+    <div class="page-header">
+        <span class="page-tag">KEAHLIAN & TOOLS</span>
+        <span class="page-num">03</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Kompetensi Teknis</h2>
+        <p class="section-sub">Penguasaan keahlian desain dan perangkat lunak standar industri kreatif</p>
+
+        <div class="skills-list">
+            <div class="skill-item">
+                <div class="skill-head">
+                    <div class="skill-icon-wrap"><i class="fa-solid fa-palette"></i></div>
+                    <div>
+                        <h3>Identitas Visual & Branding</h3>
+                        <p>Merancang logo filosofis, panduan warna korporat, and Brand Guidelines yang konsisten.</p>
+                    </div>
+                    <span class="skill-pct-badge">90%</span>
+                </div>
+                <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-head">
+                    <div class="skill-icon-wrap"><i class="fa-solid fa-vector-square"></i></div>
+                    <div>
+                        <h3>Ilustrasi Vektor & Digital Imaging</h3>
+                        <p>Pembuatan aset vektor presisi dan manipulasi foto digital tingkat lanjut.</p>
+                    </div>
+                    <span class="skill-pct-badge">85%</span>
+                </div>
+                <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-head">
+                    <div class="skill-icon-wrap"><i class="fa-solid fa-newspaper"></i></div>
+                    <div>
+                        <h3>Layouting & Publikasi Kreatif</h3>
+                        <p>Grid system, hirarki visual, tipografi ekspresif untuk poster, infografis, majalah, dan konten media sosial.</p>
+                    </div>
+                    <span class="skill-pct-badge">88%</span>
+                </div>
+                <div class="skill-bar-wrap"><div class="skill-bar-fill" style="width:88%"></div></div>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h3 class="tools-title">Penguasaan Software Industri Kreatif</h3>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon figma-bg"><i class="fa-brands fa-figma"></i></div>
+                    <span class="tool-name">Figma</span>
+                    <span class="tool-use">UI/UX Design</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon ai-bg">Ai</div>
+                    <span class="tool-name">Illustrator</span>
+                    <span class="tool-use">Vektor & Branding</span>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon ps-bg">Ps</div>
+                    <span class="tool-name">Photoshop</span>
+                    <span class="tool-use">Digital Imaging</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-process">
+    <div class="page-header">
+        <span class="page-tag">METODOLOGI KREATIF</span>
+        <span class="page-num">04</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Alur Kerja Desain</h2>
+        <p class="section-sub">Pendekatan sistematis dalam setiap proyek kreatif — dari brief hingga deliverable final</p>
+        <div class="process-list">
+            <div class="process-item">
+                <div class="process-num-box">01</div>
+                <div class="process-icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="process-body">
+                    <h3>Riset & Brief</h3>
+                    <p>Menggali kebutuhan klien, memahami target audiens, menganalisis kompetitor, dan menetapkan tujuan komunikasi visual secara menyeluruh.</p>
+                </div>
+            </div>
+            <div class="process-connector-v"></div>
+            <div class="process-item">
+                <div class="process-num-box">02</div>
+                <div class="process-icon-box"><i class="fa-solid fa-pen-clip"></i></div>
+                <div class="process-body">
+                    <h3>Konsep & Sketsa</h3>
+                    <p>Mengeksplorasi berbagai arah kreatif melalui moodboard, thumbnail sketching, dan penyusunan konsep narasi visual yang kuat.</p>
+                </div>
+            </div>
+            <div class="process-connector-v"></div>
+            <div class="process-item">
+                <div class="process-num-box">03</div>
+                <div class="process-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div class="process-body">
+                    <h3>Eksekusi Digital</h3>
+                    <p>Mewujudkan konsep ke dalam karya digital presisi menggunakan software industri — dari vektor, layout, hingga detail tinggi.</p>
+                </div>
+            </div>
+            <div class="process-connector-v"></div>
+            <div class="process-item">
+                <div class="process-num-box">04</div>
+                <div class="process-icon-box"><i class="fa-solid fa-rotate"></i></div>
+                <div class="process-body">
+                    <h3>Revisi & Refinement</h3>
+                    <p>Iterasi berdasarkan feedback dengan tetap menjaga integritas konsep awal. Setiap detail diperhalus maksimal.</p>
+                </div>
+            </div>
+            <div class="process-connector-v"></div>
+            <div class="process-item">
+                <div class="process-num-box">05</div>
+                <div class="process-icon-box"><i class="fa-solid fa-rocket"></i></div>
+                <div class="process-body">
+                    <h3>Deliver & Publish</h3>
+                    <p>Mengekspor aset dalam format optimal sesuai kebutuhan — cetak, digital, atau web — lengkap dengan panduan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-project-intro">
+    <div class="page-header">
+        <span class="page-tag">GALERI KARYA</span>
+        <span class="page-num">05</span>
+    </div>
+    <div class="page-content page-content-center">
+        <div class="gallery-intro">
+            <div class="gallery-intro-num">04</div>
+            <div>
+                <h2 class="gallery-intro-title">Eksibisi<br>Desain<br><span>Terpilih</span></h2>
+                <p class="gallery-intro-sub">Kumpulan karya terbaik yang mencerminkan eksplorasi, eksperimen, dan eksekusi visual selama perjalanan belajar desain komunikasi visual.</p>
+            </div>
+            <div class="gallery-index">
+                <div class="gi-item"><span class="gi-num">01</span><span>Revitalisasi Brand Identity</span><span class="gi-tool">Adobe Illustrator</span></div>
+                <div class="gi-item"><span class="gi-num">02</span><span>Creative Campaign Content</span><span class="gi-tool">Adobe Photoshop</span></div>
+                <div class="gi-item"><span class="gi-num">03</span><span>Eksperimen Tipografi Poster</span><span class="gi-tool">Adobe Photoshop</span></div>
+                <div class="gi-item"><span class="gi-num">04</span><span>Mobile App Interface Design</span><span class="gi-tool">Figma</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-project">
+    <div class="page-header">
+        <span class="page-tag">KARYA 01 — BRANDING</span>
+        <span class="page-num">06</span>
+    </div>
+    <div class="page-content">
+        <div class="project-layout">
+            <div class="project-img-area">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop" alt="Revitalisasi Brand Identity">
+                <div class="project-img-caption">Visual utama — Revitalisasi Brand Identity</div>
+            </div>
+            <div class="project-info">
+                <div class="project-cat-tag">Studi Kasus Identity</div>
+                <h2 class="project-title">Revitalisasi<br>Brand Identity</h2>
+                <p class="project-desc">Konseptualisasi ulang identitas visual logo untuk usaha lokal. Berfokus pada nilai keterbacaan yang fungsional dan adaptif pada berbagai media cetak dan digital.</p>
+                <div class="project-meta-grid">
+                    <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Adobe Illustrator</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>Branding & Identity</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Fokus</span><span>Logo, Tipografi, Color System</span></div>
+                </div>
+                <div class="project-insight">
+                    <h4>Pendekatan Konseptual</h4>
+                    <p>Proses dimulai dari riset mendalam terhadap nilai dan karakter brand, dilanjutkan dengan eksplorasi bentuk geometris yang merepresentasikan identitas usaha secara filosofis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-project">
+    <div class="page-header">
+        <span class="page-tag">KARYA 02 — DIGITAL IMAGING</span>
+        <span class="page-num">07</span>
+    </div>
+    <div class="page-content">
+        <div class="project-layout project-layout-reverse">
+            <div class="project-info">
+                <div class="project-cat-tag">Media Sosial / Digital Imaging</div>
+                <h2 class="project-title">Creative<br>Campaign<br>Content</h2>
+                <p class="project-desc">Perancangan rangkaian visual aset media sosial Instagram mikroblog terstruktur dengan penerapan psikologi warna guna memikat interaksi audiens secara maksimal.</p>
+                <div class="project-meta-grid">
+                    <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Adobe Photoshop</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>Social Media Content</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Platform</span><span>Instagram Feed</span></div>
+                </div>
+                <div class="project-insight">
+                    <h4>Pendekatan Konseptual</h4>
+                    <p>Penerapan psikologi warna secara terencana untuk membangun hierarki visual yang mengundang audiens agar berinteraksi lebih dalam dengan konten yang disajikan.</p>
+                </div>
+            </div>
+            <div class="project-img-area">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Creative Campaign Content">
+                <div class="project-img-caption">Visual utama — Creative Campaign Content</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-project">
+    <div class="page-header">
+        <span class="page-tag">KARYA 03 — TIPOGRAFI</span>
+        <span class="page-num">08</span>
+    </div>
+    <div class="page-content">
+        <div class="project-layout">
+            <div class="project-img-area">
+                <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop" alt="Eksperimen Tipografi Poster">
+                <div class="project-img-caption">Visual utama — Eksperimen Tipografi Poster</div>
+            </div>
+            <div class="project-info">
+                <div class="project-cat-tag">Seni Cetak / Manipulation</div>
+                <h2 class="project-title">Eksperimen<br>Tipografi<br>Poster</h2>
+                <p class="project-desc">Eksplorasi susunan tata letak huruf ekspresif yang dikombinasikan dengan teknik photo manipulation untuk media promosi pameran seni kontemporer.</p>
+                <div class="project-meta-grid">
+                    <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Adobe Photoshop</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>Typography & Print</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Media</span><span>Poster Promosi A3</span></div>
+                </div>
+                <div class="project-insight">
+                    <h4>Pendekatan Konseptual</h4>
+                    <p>Tipografi diperlakukan sebagai elemen visual utama — bukan sekadar teks, melainkan bentuk seni yang memiliki bobot estetis, ritme, dan narasi tersendiri.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-project">
+    <div class="page-header">
+        <span class="page-tag">KARYA 04 — UI/UX DESIGN</span>
+        <span class="page-num">09</span>
+    </div>
+    <div class="page-content">
+        <div class="project-layout project-layout-reverse">
+            <div class="project-info">
+                <div class="project-cat-tag">User Interface / Product Design</div>
+                <h2 class="project-title">Mobile App<br>Interface<br>Design</h2>
+                <p class="project-desc">Perancangan prototipe antarmuka aplikasi interaktif yang berfokus pada pengalaman pengguna (user journey) yang bersih, modern, dan intuitif.</p>
+                <div class="project-meta-grid">
+                    <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Figma</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>UI/UX Design</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Output</span><span>Interactive Prototype</span></div>
+                </div>
+                <div class="project-insight">
+                    <h4>Pendekatan Konseptual</h4>
+                    <p>Desain antarmuka berpusat pada kemudahan navigasi pengguna dengan mengutamakan prinsip clarity, consistency, dan feedback yang responsif.</p>
+                </div>
+            </div>
+            <div class="project-img-area">
+                <img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?q=80&w=800&auto=format&fit=crop" alt="Mobile App Interface Design">
+                <div class="project-img-caption">Visual utama — Mobile App Interface Design</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-gallery-thumb">
+    <div class="page-header">
+        <span class="page-tag">RINGKASAN GALERI</span>
+        <span class="page-num">10</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Koleksi Karya</h2>
+        <p class="section-sub">Tampilan ringkas seluruh karya dalam portofolio ini</p>
+        <div class="thumb-grid">
+            <div class="thumb-card">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=400&auto=format&fit=crop" alt="Brand Identity">
+                <div class="thumb-info">
+                    <span class="thumb-num">01</span>
+                    <h4>Revitalisasi Brand Identity</h4>
+                    <span class="thumb-tool">Adobe Illustrator</span>
+                </div>
+            </div>
+            <div class="thumb-card">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop" alt="Campaign">
+                <div class="thumb-info">
+                    <span class="thumb-num">02</span>
+                    <h4>Creative Campaign Content</h4>
+                    <span class="thumb-tool">Adobe Photoshop</span>
+                </div>
+            </div>
+            <div class="thumb-card">
+                <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=400&auto=format&fit=crop" alt="Typography">
+                <div class="thumb-info">
+                    <span class="thumb-num">03</span>
+                    <h4>Eksperimen Tipografi Poster</h4>
+                    <span class="thumb-tool">Adobe Photoshop</span>
+                </div>
+            </div>
+            <div class="thumb-card">
+                <img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?q=80&w=400&auto=format&fit=crop" alt="UI Design">
+                <div class="thumb-info">
+                    <span class="thumb-num">04</span>
+                    <h4>Mobile App Interface Design</h4>
+                    <span class="thumb-tool">Figma</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-exploration">
+    <div class="page-header">
+        <span class="page-tag">EKSPLORASI VISUAL</span>
+        <span class="page-num">11</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Studi & Eksperimen</h2>
+        <p class="section-sub">Proses eksplorasi, sketsa, dan percobaan visual yang membentuk gaya desain personal</p>
+        <div class="exploration-grid">
+            <div class="exp-card exp-wide">
+                <div>
+                    <div class="exp-icon"><i class="fa-solid fa-swatchbook"></i></div>
+                    <h3>Color Theory Exploration</h3>
+                    <p>Studi mendalam tentang psikologi warna dan penerapannya dalam konteks komunikasi visual — bagaimana warna memengaruhi emosi, persepsi, dan keputusan audiens.</p>
+                </div>
+                <div class="exp-visual">
+                    <div class="color-swatch" style="background:#E11D48"></div>
+                    <div class="color-swatch" style="background:#FF6B00"></div>
+                    <div class="color-swatch" style="background:#F59E0B"></div>
+                    <div class="color-swatch" style="background:#10B981"></div>
+                    <div class="color-swatch" style="background:#3B82F6"></div>
+                    <div class="color-swatch" style="background:#8B5CF6"></div>
+                </div>
+            </div>
+            <div class="exp-card">
+                <div class="exp-icon"><i class="fa-solid fa-font"></i></div>
+                <h3>Typography Study</h3>
+                <p>Eksplorasi klasifikasi huruf, kerning, leading, dan tracking untuk menciptakan hierarki visual yang optimal dalam berbagai konteks desain editorial.</p>
+                <div class="typo-demo">
+                    <span style="font-family:'Syne'; font-size:1.1rem; font-weight:800; color:var(--ink);">Display Font</span>
+                    <span style="font-family:'Plus Jakarta Sans'; font-size:0.85rem; color:var(--ink-muted);">Body Text Regular</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-nirmana">
+    <div class="page-header">
+        <span class="page-tag">FONDASI DESAIN</span>
+        <span class="page-num">12</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Prinsip Nirmana</h2>
+        <p class="section-sub">Fondasi keilmuan desain komunikasi visual yang menjadi landasan setiap karya</p>
+        <div class="nirmana-grid">
+            <div class="nirmana-card">
+                <div class="nirmana-icon"><i class="fa-solid fa-border-none"></i></div>
+                <div>
+                    <h3>Nirmana Dwimatra</h3>
+                    <p>Elemen dan prinsip desain dua dimensi: titik, garis, bidang, warna, dan tekstur serta penerapannya dalam komposisi visual yang harmonis.</p>
+                </div>
+            </div>
+            <div class="nirmana-card">
+                <div class="nirmana-icon"><i class="fa-solid fa-cube"></i></div>
+                <div>
+                    <h3>Nirmana Trimatra</h3>
+                    <p>Eksplorasi volume, ruang, dan dimensi dalam desain tiga dimensi — pemahaman tentang perspektif dan kedalaman dalam karya visual.</p>
+                </div>
+            </div>
+            <div class="nirmana-card">
+                <div class="nirmana-icon"><i class="fa-solid fa-eye"></i></div>
+                <div>
+                    <h3>Psikologi Visual</h3>
+                    <p>Pemahaman cara mata bergerak membaca desain, teori Gestalt, dan bagaimana otak memproses informasi visual secara hierarkis.</p>
+                </div>
+            </div>
+            <div class="nirmana-card">
+                <div class="nirmana-icon"><i class="fa-solid fa-camera"></i></div>
+                <div>
+                    <h3>Fotografi & Videografi</h3>
+                    <p>Teknik dasar fotografi komposisi, pencahayaan, dan pengambilan gambar video sebagai bagian integral dari produksi konten visual.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-education">
+    <div class="page-header">
+        <span class="page-tag">REKAM JEJAK</span>
+        <span class="page-num">13</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Riwayat Pendidikan</h2>
+        <p class="section-sub">Perjalanan akademik yang membentuk kompetensi dan visi kreatif</p>
+        <div class="edu-timeline">
+            <div class="edu-item edu-highlight">
+                <div class="edu-badge"><i class="fa-solid fa-star"></i></div>
+                <div class="edu-year-tag">Sekarang</div>
+                <div class="edu-body">
+                    <div class="edu-level">Sekolah Menengah Kejuruan</div>
+                    <h3>SMKN 71 Jakarta</h3>
+                    <div class="edu-major"><i class="fa-solid fa-graduation-cap"></i> Desain Komunikasi Visual (DKV)</div>
+                    <p>Mempelajari dan mendalami metodologi konsep desain (design thinking), prinsip Nirmana Dwimatra & Trimatra, teori warna lanjut, tipografi, ilustrasi digital, teknik fotografi/videografi, hingga penguasaan penuh software desain standar industri kreatif.</p>
+                    <div class="edu-subjects">
+                        <span>Design Thinking</span>
+                        <span>Nirmana</span>
+                        <span>Tipografi</span>
+                        <span>Fotografi</span>
+                        <span>Ilustrasi Digital</span>
+                        <span>Videografi</span>
+                    </div>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-badge edu-badge-sm"><i class="fa-solid fa-circle"></i></div>
+                <div class="edu-body">
+                    <div class="edu-level">Pendidikan Menengah</div>
+                    <h3>SMPN 236 Jakarta</h3>
+                    <p>Masa eksplorasi bakat seni, mulai aktif melatih disiplin kelompok kerja, serta mengenal dasar-dasar perangkat komputer dan pengolahan grafis sederhana digital.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-values">
+    <div class="page-header">
+        <span class="page-tag">NILAI & KOMITMEN</span>
+        <span class="page-num">14</span>
+    </div>
+    <div class="page-content">
+        <h2 class="section-h2">Prinsip Berkarya</h2>
+        <p class="section-sub">Nilai-nilai yang menjadi kompas dalam setiap proses kreatif</p>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-num">01</div>
+                <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Purpose-Driven</h3>
+                <p>Setiap elemen desain hadir dengan alasan yang jelas. Tidak ada satu pun elemen yang ditambahkan tanpa kontribusi nyata terhadap pesan komunikasi.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-num">02</div>
+                <div class="value-icon"><i class="fa-solid fa-infinity"></i></div>
+                <h3>Adaptif & Konsisten</h3>
+                <p>Desain yang baik harus mampu beradaptasi pada berbagai medium tanpa kehilangan identitasnya — dari layar digital hingga media cetak.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-num">03</div>
+                <div class="value-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3>Inovatif & Relevan</h3>
+                <p>Selalu mengikuti tren visual terkini sembari tetap mempertahankan fondasi prinsip desain yang abadi dan teruji.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-num">04</div>
+                <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Kolaboratif</h3>
+                <p>Desain terbaik lahir dari dialog yang terbuka. Saya percaya proses kreatif yang inklusif menghasilkan karya yang lebih kuat.</p>
+            </div>
+        </div>
+        <div class="values-quote">
+            <i class="fa-solid fa-quote-left"></i>
+            <p>Saya tidak mendesain untuk terlihat keren. Saya mendesain agar orang lain merasakan sesuatu, memahami sesuatu, dan mengambil tindakan.</p>
+            <span>— Daffa Andhika Komul</span>
+        </div>
+    </div>
+</div>
+
+<div class="page page-contact">
+    <div class="page-header">
+        <span class="page-tag">KOLABORASI</span>
+        <span class="page-num">15</span>
+    </div>
+    <div class="page-content page-content-center">
+        <div class="contact-center">
+            <div class="contact-intro-tag">Terbuka untuk Kolaborasi</div>
+            <h2 class="contact-big-title">Mari<br>Berkarya<br><span>Bersama</span></h2>
+            <p class="contact-desc">Saya sangat terbuka untuk proyek kolaborasi desain grafis, magang industri kreatif, atau sekadar bertukar opini mengenai tren perkembangan visual komunikasi saat ini.</p>
+            <div class="contact-cards">
+                <div class="ccard">
+                    <div class="ccard-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div>
+                        <div class="ccard-label">Surel</div>
+                        <div class="ccard-val">daffa1juli2008@gmail.com</div>
+                    </div>
+                </div>
+                <div class="ccard">
+                    <div class="ccard-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div>
+                        <div class="ccard-label">Lokasi</div>
+                        <div class="ccard-val">Jakarta, Indonesia</div>
+                    </div>
+                </div>
+                <div class="ccard">
+                    <div class="ccard-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <div>
+                        <div class="ccard-label">Instagram</div>
+                        <div class="ccard-val">@tyraen__</div>
+                    </div>
+                </div>
+                <div class="ccard">
+                    <div class="ccard-icon"><i class="fa-brands fa-behance"></i></div>
+                    <div>
+                        <div class="ccard-label">Behance</div>
+                        <div class="ccard-val">Segera hadir</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-availability">
+                <div class="avail-dot"></div>
+                <span>Tersedia untuk proyek freelance & magang — 2026</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page page-backcover">
+    <div class="cover-bg-grid"></div>
+    <div class="cover-accent-bar"></div>
+    <div class="backcover-content">
+        <div class="backcover-eyebrow">Portofolio Desain Komunikasi Visual · 2026</div>
+        <div class="backcover-logo">Dhagtaa<span>.Studio</span></div>
+        <div class="backcover-divider"></div>
+        <div class="backcover-quote">
+            <p>"Kreativitas bukan bakat —<br>melainkan cara memandang dunia."</p>
+        </div>
+        <div class="backcover-info">
+            <span>Daffa Andhika Komul</span>
+            <span>·</span>
+            <span>SMKN 71 Jakarta — DKV</span>
+            <span>·</span>
+            <span>daffa1juli2008@gmail.com</span>
+        </div>
+        <div class="backcover-tools">
+            <span>Figma</span><span class="sep">·</span>
+            <span>Adobe Illustrator</span><span class="sep">·</span>
+            <span>Adobe Photoshop</span>
+        </div>
+    </div>
+    <div class="backcover-deco-num">16</div>
+</div>
+
+</body>
+</html>
