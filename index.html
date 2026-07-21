@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Daffa Andhika K. — Print Edition</title>
+    <title>Portofolio DKV Daffa Andhika K. — Dark Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
@@ -11,20 +11,21 @@
     
     <style>
     /* ==========================================================================
-       PRINT PORTFOLIO — 16 HAL A4 LANDSCAPE (COMPLETE STYLES)
-       Clean Professional Edition — Daffa Andhika | Dhagtaa.Studio
+       PRINT PORTFOLIO — 16 HAL A4 LANDSCAPE (COMPLETE, DARK & FIXED)
+       Premium DKV Edition — Daffa Andhika | Dhagtaa.Studio
        ========================================================================== */
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-        --ink:        #0D0F14;
-        --ink-soft:   #1C2030;
-        --ink-muted:  #4A5568;
-        --ink-light:  #8896A8;
-        --paper:      #F8F9FB;
-        --paper-warm: #FFFFFF;
-        --rule:       #E8ECF0;
+        /* DARK MODE VARIABLES */
+        --ink:        #F8F9FB; /* Teks Utama Putih */
+        --ink-soft:   #E2E8F0; /* Teks Sekunder Putih Abu */
+        --ink-muted:  #A0AEC0; /* Teks Paragraf */
+        --ink-light:  #718096; /* Label/Caption */
+        --paper:      rgba(255, 255, 255, 0.03); /* Kartu transparan gelap */
+        --paper-warm: #0D0F14; /* Background halaman gelap utama */
+        --rule:       rgba(255, 255, 255, 0.1); /* Garis batas transparan */
         --red:    #D4163C;
         --orange: #E8620A;
         --grad:   linear-gradient(125deg, #D4163C 0%, #E8620A 100%);
@@ -32,20 +33,21 @@
         --f-body:    'Plus Jakarta Sans', sans-serif;
     }
 
-    html { background: #CDD2DA; font-family: var(--f-body); }
+    html { background: #050608; font-family: var(--f-body); }
     body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
     /* ── BASE PAGE SETUP (A4 LANDSCAPE) ── */
     .page {
         width: 297mm;
         height: 210mm;
-        background: var(--paper-warm);
+        /* Background disamakan untuk semua halaman (Dark Gradient) */
+        background: linear-gradient(135deg, rgba(13, 15, 20, 0.98) 0%, rgba(20, 25, 35, 0.95) 100%);
         margin: 8mm auto;
         position: relative;
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 30px rgba(0,0,0,0.5);
     }
 
     @media print {
@@ -74,51 +76,80 @@
     .section-sub { font-size: 9pt; color: var(--ink-light); margin-bottom: 8mm; }
 
     /* ── PAGE 1: COVER ── */
-    .page-cover { background: var(--ink); color: #FFFFFF; justify-content: space-between; padding: 14mm; }
-    .cover-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 12mm 12mm; pointer-events: none; }
+    .page-cover { 
+        background: linear-gradient(135deg, rgba(13, 15, 20, 0.92) 30%, rgba(20, 25, 35, 0.75) 100%), 
+                    url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        color: #FFFFFF; 
+        justify-content: space-between; 
+        padding: 14mm; 
+    }
+    .cover-bg-grid { 
+        position: absolute; 
+        inset: 0; 
+        height: 100%;
+        background-image: linear-gradient(rgba(232, 98, 10, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 98, 10, 0.1) 1px, transparent 1px);
+        background-size: 15mm 15mm; 
+        pointer-events: none; 
+    }
     .cover-accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 4mm; background: var(--grad); }
     .cover-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
     .cover-tag { font-size: 7.5pt; font-weight: 700; letter-spacing: 0.3em; color: var(--orange); }
     .cover-name-wrap { display: flex; align-items: flex-start; gap: 10mm; margin-top: 15mm; }
     .cover-name { font-family: var(--f-display); font-size: 52pt; font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; }
-    .cover-name span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .cover-name span { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    
     .cover-divider-v { width: 1px; height: 45mm; background: rgba(255,255,255,0.1); align-self: center; }
     .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm; }
     .cover-meta-item { display: flex; flex-direction: column; gap: 1mm; }
     .cover-meta-label { font-size: 6pt; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 0.15em; }
     .cover-meta-val { font-size: 9pt; font-weight: 600; color: rgba(255,255,255,0.8); }
     .cover-tagline { font-size: 10pt; font-style: italic; color: rgba(255,255,255,0.5); border-left: 3px solid var(--red); padding-left: 4mm; margin-top: 8mm; max-width: 120mm; }
-    .cover-deco-num { position: absolute; right: 0; bottom: 0; font-family: var(--f-display); font-size: 130pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.08; line-height: 1; }
+    
+    .cover-deco-num { position: absolute; right: 0; bottom: 0; font-family: var(--f-display); font-size: 130pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.08; line-height: 1; }
+    
     .cover-bottom-bar { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 5mm; font-size: 8pt; color: rgba(255,255,255,0.4); z-index: 2; }
 
     /* ── PAGE 2: PROFILE ── */
     .profile-grid { display: grid; grid-template-columns: 75mm 1fr; gap: 12mm; height: 100%; }
-    .profile-left { background: var(--paper); border-radius: 4mm; padding: 6mm; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--rule); }
+    .profile-left { 
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 4mm; 
+        padding: 6mm; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between; 
+        border: 1px solid var(--rule); 
+    }
     .profile-avatar { position: relative; width: 26mm; height: 26mm; margin: 0 auto 4mm; }
-    .avatar-inner { width: 100%; height: 100%; background: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24pt; color: var(--red); border: 1px solid var(--rule); z-index: 2; position: relative; }
+    .avatar-inner { width: 100%; height: 100%; background: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid var(--orange); z-index: 2; position: relative; }
     .avatar-ring { position: absolute; inset: -3px; background: var(--grad); border-radius: 50%; z-index: 1; opacity: 0.7; }
     .profile-contact-list { display: flex; flex-direction: column; gap: 3mm; margin-bottom: 4mm; }
     .pcontact-item { display: flex; align-items: center; gap: 3mm; font-size: 8pt; color: var(--ink-muted); }
-    .pcontact-item i { color: var(--red); width: 4mm; text-align: center; }
+    .pcontact-item i { color: var(--orange); width: 4mm; text-align: center; }
     .profile-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; border-top: 1px solid var(--rule); padding-top: 4mm; text-align: center; }
-    .pstat-num { display: block; font-family: var(--f-display); font-size: 16pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .pstat-num { display: block; font-family: var(--f-display); font-size: 16pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    
     .pstat-lbl { font-size: 6pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; margin-top: 1mm; display: block; }
     .profile-right { display: flex; flex-direction: column; justify-content: center; }
     .profile-role { font-size: 10pt; font-weight: 700; color: var(--orange); margin-bottom: 4mm; }
     .profile-bio { font-size: 9pt; color: var(--ink-muted); line-height: 1.7; margin-bottom: 4mm; text-align: justify; }
     .philosophy-box { background: var(--paper); border-left: 3px solid var(--red); padding: 4mm 5mm; border-radius: 0 4mm 4mm 0; margin: 2mm 0 6mm; position: relative; }
-    .philosophy-quote-mark { font-family: var(--f-display); font-size: 36pt; color: var(--red); opacity: 0.1; position: absolute; left: 2mm; top: -2mm; line-height: 1; }
+    .philosophy-quote-mark { font-family: var(--f-display); font-size: 36pt; color: var(--red); opacity: 0.2; position: absolute; left: 2mm; top: -2mm; line-height: 1; }
     .philosophy-text { font-size: 9pt; font-style: italic; color: var(--ink-soft); font-weight: 500; line-height: 1.6; }
     .philosophy-attr { font-size: 7pt; font-weight: 700; color: var(--ink-light); margin-top: 2mm; text-transform: uppercase; }
     .profile-badges { display: flex; gap: 2.5mm; }
-    .pbadge { font-size: 7.5pt; font-weight: 700; background: #FFFFFF; border: 1px solid var(--rule); padding: 1.5mm 3.5mm; border-radius: 20mm; color: var(--ink-muted); display: flex; align-items: center; gap: 2mm; }
+    .pbadge { font-size: 7.5pt; font-weight: 700; background: rgba(255,255,255,0.05); border: 1px solid var(--rule); padding: 1.5mm 3.5mm; border-radius: 20mm; color: var(--ink-muted); display: flex; align-items: center; gap: 2mm; }
     .pbadge i { color: var(--orange); }
 
     /* ── PAGE 3: SKILLS ── */
     .skills-list { display: flex; flex-direction: column; gap: 4.5mm; margin-bottom: 8mm; }
     .skill-item { background: var(--paper); border: 1px solid var(--rule); padding: 4mm; border-radius: 3mm; }
     .skill-head { display: flex; align-items: center; gap: 4mm; margin-bottom: 2.5mm; }
-    .skill-icon-wrap { width: 9mm; height: 9mm; background: #FFFFFF; border-radius: 2mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 12pt; color: var(--red); }
+    .skill-icon-wrap { width: 9mm; height: 9mm; background: rgba(255,255,255,0.05); border-radius: 2mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 12pt; color: var(--red); }
     .skill-head div { flex: 1; }
     .skill-head h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 0.5mm; }
     .skill-head p { font-size: 8pt; color: var(--ink-muted); }
@@ -128,9 +159,9 @@
     .tools-section { border-top: 1px solid var(--rule); padding-top: 5mm; }
     .tools-title { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); margin-bottom: 4mm; }
     .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
-    .tool-card { background: #FFFFFF; border: 1px solid var(--rule); padding: 3mm 4mm; border-radius: 3mm; display: flex; align-items: center; gap: 4mm; }
+    .tool-card { background: var(--paper); border: 1px solid var(--rule); padding: 3mm 4mm; border-radius: 3mm; display: flex; align-items: center; gap: 4mm; }
     .tool-icon { width: 10mm; height: 10mm; border-radius: 2mm; display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 800; font-size: 13pt; color: #FFFFFF; }
-    .figma-bg { background: #F24E1E; }
+    .vscode-bg { background: #007ACC; }
     .ai-bg { background: #FF9A00; }
     .ps-bg { background: #00A4FF; }
     .tool-name { font-size: 9.5pt; font-weight: 700; color: var(--ink); flex: 1; }
@@ -140,29 +171,34 @@
     .process-list { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 8mm; position: relative; }
     .process-item { display: flex; flex-direction: column; align-items: center; text-align: center; width: 44mm; position: relative; z-index: 2; }
     .process-num-box { font-family: var(--f-display); font-size: 9pt; font-weight: 800; color: var(--orange); background: var(--paper); border: 1px solid var(--rule); padding: 1mm 3mm; border-radius: 10mm; margin-bottom: 3mm; }
-    .process-icon-box { width: 14mm; height: 14mm; background: #FFFFFF; border: 2px solid var(--rule); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14pt; color: var(--red); margin-bottom: 4mm; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .process-icon-box { width: 14mm; height: 14mm; background: rgba(0,0,0,0.5); border: 2px solid var(--rule); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14pt; color: var(--red); margin-bottom: 4mm; }
     .process-item h3 { font-size: 10pt; font-weight: 700; color: var(--ink); margin-bottom: 2mm; }
     .process-item p { font-size: 7.5pt; color: var(--ink-muted); line-height: 1.6; }
     .process-connector-v { flex: 1; height: 2px; background: var(--rule); margin-top: 18mm; position: relative; z-index: 1; }
 
-    /* ── PAGE 5: GALLERY INTRO ── */
+    /* ── PAGE 5-9: PROJECT DETAILS ── */
     .gallery-intro { display: grid; grid-template-columns: 1fr 1.2fr; gap: 12mm; align-items: center; width: 100%; }
-    .gallery-intro-num { font-family: var(--f-display); font-size: 110pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.15; line-height: 0.8; }
+    
+    .gallery-intro-num { font-family: var(--f-display); font-size: 110pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.15; line-height: 0.8; }
+    
     .gallery-intro-title { font-family: var(--f-display); font-size: 32pt; font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -0.03em; margin-bottom: 4mm; }
-    .gallery-intro-title span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .gallery-intro-title span { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    
     .gallery-intro-sub { font-size: 10pt; color: var(--ink-muted); line-height: 1.7; }
     .gallery-index { display: flex; flex-direction: column; gap: 3mm; background: var(--paper); padding: 6mm; border-radius: 4mm; border: 1px solid var(--rule); }
     .gi-item { display: flex; align-items: center; justify-content: space-between; font-size: 8.5pt; border-bottom: 1px dashed var(--rule); padding-bottom: 2mm; }
     .gi-item:last-child { border-bottom: none; padding-bottom: 0; }
     .gi-num { font-family: var(--f-display); font-weight: 700; color: var(--red); }
-    .gi-tool { font-size: 7.5pt; color: var(--ink-light); background: #FFFFFF; padding: 0.5mm 2mm; border-radius: 10mm; border: 1px solid var(--rule); }
+    .gi-tool { font-size: 7.5pt; color: var(--ink-light); background: rgba(255,255,255,0.05); padding: 0.5mm 2mm; border-radius: 10mm; border: 1px solid var(--rule); }
 
-    /* ── PAGE 6-9: PROJECT DETAILS ── */
     .project-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10mm; height: 100%; align-items: center; }
-    .project-layout-reverse { grid-template-columns: 1fr 1.2fr; }
+    .project-layout.reverse { grid-template-columns: 1fr 1.2fr; }
     .project-img-area { position: relative; height: 125mm; background: var(--paper); border-radius: 4mm; overflow: hidden; border: 1px solid var(--rule); }
     .project-img-area img { width: 100%; height: 100%; object-fit: cover; }
-    .project-img-caption { position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 4mm; color: #FFFFFF; font-size: 8pt; font-style: italic; }
+    
+    .project-img-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 4mm; color: #FFFFFF; font-size: 8pt; font-style: italic; }
+    
     .project-info { display: flex; flex-direction: column; }
     .project-cat-tag { font-size: 7pt; font-weight: 700; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2mm; }
     .project-title { font-family: var(--f-display); font-size: 26pt; font-weight: 800; color: var(--ink); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 4mm; }
@@ -179,52 +215,51 @@
     .thumb-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 3mm; overflow: hidden; display: flex; flex-direction: column; }
     .thumb-card img { width: 100%; height: 45mm; object-fit: cover; border-bottom: 1px solid var(--rule); }
     .thumb-info { padding: 3.5mm; flex: 1; display: flex; flex-direction: column; position: relative; }
-    .thumb-num { font-family: var(--f-display); font-size: 24pt; font-weight: 800; color: var(--rule); position: absolute; right: 2mm; top: 0; line-height: 1; z-index: 1; }
+    .thumb-num { font-family: var(--f-display); font-size: 24pt; font-weight: 800; color: rgba(255,255,255,0.08); position: absolute; right: 2mm; top: 0; line-height: 1; z-index: 1; }
     .thumb-info h4 { font-size: 9pt; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 2mm; position: relative; z-index: 2; }
     .thumb-tool { font-size: 7pt; color: var(--ink-light); text-transform: uppercase; font-weight: 600; margin-top: auto; }
 
     /* ── PAGE 11: EXPLORATION ── */
     .exploration-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6mm; height: 115mm; }
-    .exp-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 4mm; padding: 5mm; display: flex; flex-direction: column; }
-    .exp-wide { grid-row: span 2; justify-content: space-between; }
-    .exp-icon { width: 10mm; height: 10mm; background: #FFFFFF; border-radius: 2mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 12pt; color: var(--red); margin-bottom: 3mm; }
+    .exp-card { background: var(--paper); border: 1px solid var(--rule); border-radius: 4mm; padding: 5mm; display: flex; flex-direction: column; justify-content: space-between; }
+    .exp-icon { width: 10mm; height: 10mm; background: rgba(255,255,255,0.05); border-radius: 2mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 12pt; color: var(--red); margin-bottom: 3mm; }
     .exp-card h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 2mm; }
     .exp-card p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; }
     .exp-visual { display: flex; gap: 2mm; margin-top: 4mm; }
-    .color-swatch { flex: 1; height: 14mm; border-radius: 2mm; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); }
-    .typo-demo { background: #FFFFFF; border: 1px solid var(--rule); padding: 3.5mm; border-radius: 2mm; margin-top: 3mm; display: flex; flex-direction: column; gap: 2mm; }
+    .color-swatch { flex: 1; height: 14mm; border-radius: 2mm; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); }
+    .typo-demo { background: rgba(0,0,0,0.3); border: 1px solid var(--rule); padding: 3.5mm; border-radius: 2mm; margin-top: 3mm; display: flex; flex-direction: column; gap: 2mm; }
 
     /* ── PAGE 12: NIRMANA ── */
     .nirmana-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 4mm; }
     .nirmana-card { background: var(--paper); border: 1px solid var(--rule); padding: 5mm; border-radius: 4mm; display: flex; gap: 4mm; align-items: flex-start; }
-    .nirmana-icon { width: 12mm; height: 12mm; background: #FFFFFF; border-radius: 3mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 14pt; color: var(--orange); flex-shrink: 0; }
+    .nirmana-icon { width: 12mm; height: 12mm; background: rgba(255,255,255,0.05); border-radius: 3mm; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 14pt; color: var(--orange); flex-shrink: 0; }
     .nirmana-card h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 1.5mm; }
     .nirmana-card p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; }
 
     /* ── PAGE 13: EDUCATION ── */
     .edu-timeline { display: flex; flex-direction: column; gap: 4mm; margin-top: 4mm; position: relative; }
     .edu-item { display: flex; gap: 6mm; background: var(--paper); border: 1px solid var(--rule); padding: 4.5mm; border-radius: 4mm; position: relative; }
-    .edu-highlight { background: #FFFFFF; border-left: 4px solid var(--red); }
+    .edu-highlight { background: rgba(255,255,255,0.08); border-left: 4px solid var(--red); }
     .edu-badge { width: 10mm; height: 10mm; background: var(--grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 10pt; flex-shrink: 0; }
     .edu-badge-sm { background: var(--rule); color: var(--ink-light); font-size: 6pt; width: 8mm; height: 8mm; align-self: center; }
-    .edu-year-tag { font-family: var(--f-display); font-size: 8pt; font-weight: 700; color: var(--red); background: rgba(212,22,60,0.06); padding: 1mm 3mm; border-radius: 10mm; position: absolute; right: 5mm; top: 5mm; }
+    .edu-year-tag { font-family: var(--f-display); font-size: 8pt; font-weight: 700; color: #FFF; background: rgba(212,22,60,0.6); padding: 1mm 3mm; border-radius: 10mm; position: absolute; right: 5mm; top: 5mm; }
     .edu-body { flex: 1; }
     .edu-level { font-size: 7.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; margin-bottom: 0.5mm; }
     .edu-body h3 { font-size: 12pt; font-weight: 800; color: var(--ink); margin-bottom: 1mm; }
     .edu-major { font-size: 8.5pt; font-weight: 600; color: var(--orange); margin-bottom: 2mm; }
     .edu-body p { font-size: 8pt; color: var(--ink-muted); line-height: 1.6; max-width: 220mm; }
     .edu-subjects { display: flex; gap: 2mm; margin-top: 3mm; flex-wrap: wrap; }
-    .edu-subjects span { font-size: 7pt; font-weight: 600; background: var(--paper); border: 1px solid var(--rule); padding: 0.8mm 2.5mm; border-radius: 10mm; color: var(--ink-muted); }
+    .edu-subjects span { font-size: 7pt; font-weight: 600; background: rgba(0,0,0,0.5); border: 1px solid var(--rule); padding: 0.8mm 2.5mm; border-radius: 10mm; color: var(--ink-soft); }
 
     /* ── PAGE 14: VALUES ── */
     .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; margin-bottom: 6mm; }
     .value-card { background: var(--paper); border: 1px solid var(--rule); padding: 4.5mm; border-radius: 4mm; position: relative; }
-    .value-num { font-family: var(--f-display); font-size: 28pt; font-weight: 800; color: var(--rule); position: absolute; right: 4mm; top: 2mm; }
+    .value-num { font-family: var(--f-display); font-size: 28pt; font-weight: 800; color: rgba(255,255,255,0.08); position: absolute; right: 4mm; top: 2mm; }
     .value-icon { font-size: 14pt; color: var(--red); margin-bottom: 3mm; }
     .value-card h3 { font-size: 10.5pt; font-weight: 700; color: var(--ink); margin-bottom: 1.5mm; }
     .value-card p { font-size: 7.5pt; color: var(--ink-muted); line-height: 1.6; }
     .values-quote { border-top: 1px solid var(--rule); padding-top: 5mm; display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .values-quote i { font-size: 16pt; color: var(--orange); opacity: 0.3; margin-bottom: 2mm; }
+    .values-quote i { font-size: 16pt; color: var(--orange); opacity: 0.5; margin-bottom: 2mm; }
     .values-quote p { font-family: var(--f-display); font-size: 12pt; font-weight: 700; color: var(--ink-soft); max-width: 180mm; line-height: 1.4; margin-bottom: 1.5mm; }
     .values-quote span { font-size: 8pt; color: var(--ink-light); font-weight: 600; }
 
@@ -232,18 +267,30 @@
     .contact-center { width: 100%; max-width: 200mm; text-align: center; display: flex; flex-direction: column; align-items: center; }
     .contact-intro-tag { font-size: 8pt; font-weight: 700; letter-spacing: 0.15em; color: var(--red); text-transform: uppercase; margin-bottom: 3mm; }
     .contact-big-title { font-family: var(--f-display); font-size: 38pt; font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 4mm; }
-    .contact-big-title span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .contact-big-title span { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    
     .contact-desc { font-size: 9.5pt; color: var(--ink-muted); line-height: 1.6; max-width: 140mm; margin-bottom: 6mm; }
     .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; width: 100%; margin-bottom: 6mm; }
     .ccard { background: var(--paper); border: 1px solid var(--rule); border-radius: 3mm; padding: 3.5mm 5mm; display: flex; align-items: center; gap: 4mm; text-align: left; }
-    .ccard-icon { width: 10mm; height: 10mm; background: #FFFFFF; border-radius: 50%; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 11pt; color: var(--orange); }
+    .ccard-icon { width: 10mm; height: 10mm; background: rgba(255,255,255,0.05); border-radius: 50%; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 11pt; color: var(--orange); }
     .ccard-label { font-size: 6.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; }
     .ccard-val { font-size: 9pt; font-weight: 600; color: var(--ink); }
     .contact-availability { display: flex; align-items: center; gap: 2.5mm; font-size: 8pt; font-weight: 600; color: var(--ink-muted); }
     .avail-dot { width: 2mm; height: 2mm; background: #10B981; border-radius: 50%; box-shadow: 0 0 8px #10B981; }
 
     /* ── PAGE 16: BACK COVER ── */
-    .page-backcover { background: var(--ink); color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 14mm; }
+    .page-backcover { 
+        background: linear-gradient(135deg, rgba(13, 15, 20, 0.92) 30%, rgba(20, 25, 35, 0.75) 100%), 
+                    url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        color: #FFFFFF; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 14mm; 
+    }
     .backcover-content { text-align: center; position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
     .backcover-eyebrow { font-size: 7.5pt; font-weight: 700; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 6mm; }
     .backcover-logo { font-family: var(--f-display); font-size: 36pt; font-weight: 800; letter-spacing: -0.02em; }
@@ -253,11 +300,13 @@
     .backcover-info { display: flex; gap: 4mm; font-size: 9pt; color: rgba(255,255,255,0.4); margin-bottom: 6mm; }
     .backcover-tools { display: flex; gap: 3mm; font-size: 8pt; font-weight: 600; color: var(--orange); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 2mm 5mm; border-radius: 20mm; }
     .backcover-tools .sep { color: rgba(255,255,255,0.1); }
-    .backcover-deco-num { position: absolute; right: 14mm; bottom: 14mm; font-family: var(--f-display); font-size: 130pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.08; line-height: 1; }
+    
+    .backcover-deco-num { position: absolute; right: 14mm; bottom: 14mm; font-family: var(--f-display); font-size: 130pt; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.08; line-height: 1; }
     </style>
 </head>
 <body>
 
+<!-- ========== PAGE 1: COVER ========== -->
 <div class="page page-cover">
     <div class="cover-bg-grid"></div>
     <div class="cover-accent-bar"></div>
@@ -291,10 +340,11 @@
     <div class="cover-bottom-bar">
         <span>daffa1juli2008@gmail.com</span>
         <span>Jakarta, Indonesia</span>
-        <span>instagram: @tyraen__</span>
+        <span>instagram: @dhagtaa_</span>
     </div>
 </div>
 
+<!-- ========== PAGE 2: PROFIL & FILOSOFI ========== -->
 <div class="page page-profile">
     <div class="page-header">
         <span class="page-tag">PROFIL</span>
@@ -305,7 +355,7 @@
             <div class="profile-left">
                 <div class="profile-avatar">
                     <div class="avatar-inner">
-                        <i class="fa-solid fa-user-tie"></i>
+                        <img src="https://cdn.phototourl.com/free/2026-07-21-22149990-fe66-4afc-8a49-1791d759fbb8.png" style="width:100%; height:100%; object-fit:cover;">
                     </div>
                     <div class="avatar-ring"></div>
                 </div>
@@ -320,7 +370,7 @@
                     </div>
                     <div class="pcontact-item">
                         <i class="fa-brands fa-instagram"></i>
-                        <span>@tyraen__</span>
+                        <span>@dhagtaa_</span>
                     </div>
                 </div>
                 <div class="profile-stats">
@@ -356,13 +406,14 @@
                     <span class="pbadge"><i class="fa-solid fa-palette"></i> Branding</span>
                     <span class="pbadge"><i class="fa-solid fa-pen-nib"></i> Ilustrasi</span>
                     <span class="pbadge"><i class="fa-solid fa-layer-group"></i> Layout</span>
-                    <span class="pbadge"><i class="fa-solid fa-display"></i> UI/UX</span>
+                    <span class="pbadge"><i class="fa-solid fa-code"></i> Web Dev</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ========== PAGE 3: SKILLS & TOOLS ========== -->
 <div class="page page-skills">
     <div class="page-header">
         <span class="page-tag">KEAHLIAN & TOOLS</span>
@@ -412,9 +463,9 @@
             <h3 class="tools-title">Penguasaan Software Industri Kreatif</h3>
             <div class="tools-grid">
                 <div class="tool-card">
-                    <div class="tool-icon figma-bg"><i class="fa-brands fa-figma"></i></div>
-                    <span class="tool-name">Figma</span>
-                    <span class="tool-use">UI/UX Design</span>
+                    <div class="tool-icon vscode-bg"><i class="fa-solid fa-code"></i></div>
+                    <span class="tool-name">VS Code</span>
+                    <span class="tool-use">Web Development</span>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon ai-bg">Ai</div>
@@ -431,6 +482,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 4: ALUR KERJA ========== -->
 <div class="page page-process">
     <div class="page-header">
         <span class="page-tag">METODOLOGI KREATIF</span>
@@ -445,7 +497,7 @@
                 <div class="process-icon-box"><i class="fa-solid fa-magnifying-glass"></i></div>
                 <div class="process-body">
                     <h3>Riset & Brief</h3>
-                    <p>Menggali kebutuhan klien, memahami target audiens, menganalisis kompetitor, dan menetapkan tujuan komunikasi visual secara menyeluruh.</p>
+                    <p>Menggali kebutuhan klien, memahami target audiens, menganalisis kompetitor, dan menetapkan tujuan komunikasi visual.</p>
                 </div>
             </div>
             <div class="process-connector-v"></div>
@@ -454,7 +506,7 @@
                 <div class="process-icon-box"><i class="fa-solid fa-pen-clip"></i></div>
                 <div class="process-body">
                     <h3>Konsep & Sketsa</h3>
-                    <p>Mengeksplorasi berbagai arah kreatif melalui moodboard, thumbnail sketching, dan penyusunan konsep narasi visual yang kuat.</p>
+                    <p>Mengeksplorasi berbagai arah kreatif melalui moodboard, thumbnail sketching, dan penyusunan konsep narasi visual.</p>
                 </div>
             </div>
             <div class="process-connector-v"></div>
@@ -463,7 +515,7 @@
                 <div class="process-icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                 <div class="process-body">
                     <h3>Eksekusi Digital</h3>
-                    <p>Mewujudkan konsep ke dalam karya digital presisi menggunakan software industri — dari vektor, layout, hingga detail tinggi.</p>
+                    <p>Mewujudkan konsep ke dalam karya digital presisi menggunakan software industri dari vektor hingga detail tinggi.</p>
                 </div>
             </div>
             <div class="process-connector-v"></div>
@@ -488,6 +540,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 5: KARYA — INTRO ========== -->
 <div class="page page-project-intro">
     <div class="page-header">
         <span class="page-tag">GALERI KARYA</span>
@@ -495,7 +548,7 @@
     </div>
     <div class="page-content page-content-center">
         <div class="gallery-intro">
-            <div class="gallery-intro-num">04</div>
+            <div class="gallery-intro-num">05</div>
             <div>
                 <h2 class="gallery-intro-title">Eksibisi<br>Desain<br><span>Terpilih</span></h2>
                 <p class="gallery-intro-sub">Kumpulan karya terbaik yang mencerminkan eksplorasi, eksperimen, dan eksekusi visual selama perjalanan belajar desain komunikasi visual.</p>
@@ -504,12 +557,13 @@
                 <div class="gi-item"><span class="gi-num">01</span><span>Revitalisasi Brand Identity</span><span class="gi-tool">Adobe Illustrator</span></div>
                 <div class="gi-item"><span class="gi-num">02</span><span>Creative Campaign Content</span><span class="gi-tool">Adobe Photoshop</span></div>
                 <div class="gi-item"><span class="gi-num">03</span><span>Eksperimen Tipografi Poster</span><span class="gi-tool">Adobe Photoshop</span></div>
-                <div class="gi-item"><span class="gi-num">04</span><span>Mobile App Interface Design</span><span class="gi-tool">Figma</span></div>
+                <div class="gi-item"><span class="gi-num">04</span><span>Interactive Web Development</span><span class="gi-tool">VS Code</span></div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ========== PAGE 6: KARYA 01 DETAIL ========== -->
 <div class="page page-project">
     <div class="page-header">
         <span class="page-tag">KARYA 01 — BRANDING</span>
@@ -518,7 +572,7 @@
     <div class="page-content">
         <div class="project-layout">
             <div class="project-img-area">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop" alt="Revitalisasi Brand Identity">
+                <img src="https://cdn.phototourl.com/free/2026-07-21-18dfad4f-9e26-44be-aef7-53685ec686a4.png" alt="Revitalisasi Brand Identity">
                 <div class="project-img-caption">Visual utama — Revitalisasi Brand Identity</div>
             </div>
             <div class="project-info">
@@ -539,13 +593,14 @@
     </div>
 </div>
 
+<!-- ========== PAGE 7: KARYA 02 DETAIL ========== -->
 <div class="page page-project">
     <div class="page-header">
         <span class="page-tag">KARYA 02 — DIGITAL IMAGING</span>
         <span class="page-num">07</span>
     </div>
     <div class="page-content">
-        <div class="project-layout project-layout-reverse">
+        <div class="project-layout reverse">
             <div class="project-info">
                 <div class="project-cat-tag">Media Sosial / Digital Imaging</div>
                 <h2 class="project-title">Creative<br>Campaign<br>Content</h2>
@@ -568,6 +623,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 8: KARYA 03 DETAIL ========== -->
 <div class="page page-project">
     <div class="page-header">
         <span class="page-tag">KARYA 03 — TIPOGRAFI</span>
@@ -576,56 +632,58 @@
     <div class="page-content">
         <div class="project-layout">
             <div class="project-img-area">
-                <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=800&auto=format&fit=crop" alt="Eksperimen Tipografi Poster">
-                <div class="project-img-caption">Visual utama — Eksperimen Tipografi Poster</div>
+                <img src="https://cdn.phototourl.com/free/2026-07-21-d34bdda8-51ab-457e-84c1-a384cdcc5807.png" alt="Eksperimen Tipografi Poster">
+                <div class="project-img-caption">Visual utama — brosur promosi</div>
             </div>
             <div class="project-info">
                 <div class="project-cat-tag">Seni Cetak / Manipulation</div>
-                <h2 class="project-title">Eksperimen<br>Tipografi<br>Poster</h2>
-                <p class="project-desc">Eksplorasi susunan tata letak huruf ekspresif yang dikombinasikan dengan teknik photo manipulation untuk media promosi pameran seni kontemporer.</p>
+                <h2 class="project-title">Perancangan Media<br>Promosi<br>Travel</h2>
+                <p class="project-desc">Eksplorasi tata letak (layout) informasi dan integrasi elemen fotografi untuk merancang media promosi paket wisata Agen Travel Werdiere.</p>
                 <div class="project-meta-grid">
                     <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Adobe Photoshop</span></div>
-                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>Typography & Print</span></div>
-                    <div class="pmeta-item"><span class="pmeta-label">Media</span><span>Poster Promosi A3</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>Brosur</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Media</span><span>Brosur Lipat Tiga (Trifold Brochure)</span></div>
                 </div>
                 <div class="project-insight">
                     <h4>Pendekatan Konseptual</h4>
-                    <p>Tipografi diperlakukan sebagai elemen visual utama — bukan sekadar teks, melainkan bentuk seni yang memiliki bobot estetis, ritme, dan narasi tersendiri.</p>
+                    <p>Pendekatan desain berfokus pada kejelasan hierarki informasi dan daya tarik visual destinasi. Penggunaan palet warna bernuansa laut dipadukan dengan tata letak gambar yang rapi bertujuan untuk menonjolkan suasana liburan Pulau Tidung secara informatif dan menggugah minat audiens.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ========== PAGE 9: KARYA 04 DETAIL ========== -->
 <div class="page page-project">
     <div class="page-header">
-        <span class="page-tag">KARYA 04 — UI/UX DESIGN</span>
+        <span class="page-tag">KARYA 04 — WEB DEVELOPMENT</span>
         <span class="page-num">09</span>
     </div>
     <div class="page-content">
-        <div class="project-layout project-layout-reverse">
+        <div class="project-layout reverse">
             <div class="project-info">
-                <div class="project-cat-tag">User Interface / Product Design</div>
-                <h2 class="project-title">Mobile App<br>Interface<br>Design</h2>
-                <p class="project-desc">Perancangan prototipe antarmuka aplikasi interaktif yang berfokus pada pengalaman pengguna (user journey) yang bersih, modern, dan intuitif.</p>
+                <div class="project-cat-tag">Web Design / Development</div>
+                <h2 class="project-title">expense<br>tracker<br>application</h2>
+                <p class="project-desc">Perancangan dan penulisan kode untuk antarmuka website interaktif yang responsif. Menggabungkan estetika visual DKV dengan struktur logika pemrograman web..</p>
                 <div class="project-meta-grid">
-                    <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Figma</span></div>
-                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>UI/UX Design</span></div>
-                    <div class="pmeta-item"><span class="pmeta-label">Output</span><span>Interactive Prototype</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Software</span><span>Visual Studio Code</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Kategori</span><span>Web Development</span></div>
+                    <div class="pmeta-item"><span class="pmeta-label">Output</span><span>Interactive Website</span></div>
                 </div>
                 <div class="project-insight">
                     <h4>Pendekatan Konseptual</h4>
-                    <p>Desain antarmuka berpusat pada kemudahan navigasi pengguna dengan mengutamakan prinsip clarity, consistency, dan feedback yang responsif.</p>
+                    <p>Perancangan aplikasi web pencatat pengeluaran harian yang interaktif dilengkapi fitur manajemen kategori,visualisasi grafik distribusi pengeluaran dan pencatatan riwayat transaksi secara real time.</p>
                 </div>
             </div>
             <div class="project-img-area">
-                <img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?q=80&w=800&auto=format&fit=crop" alt="Mobile App Interface Design">
-                <div class="project-img-caption">Visual utama — Mobile App Interface Design</div>
+                <img src="https://cdn.phototourl.com/free/2026-07-21-a188c99f-94da-4bd8-8c16-ea03141d73c7.png" alt="Interactive Web Development">
+                <div class="project-img-caption">Visual utama — Interactive Web Development</div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ========== PAGE 10: GALERI THUMBNAIL ========== -->
 <div class="page page-gallery-thumb">
     <div class="page-header">
         <span class="page-tag">RINGKASAN GALERI</span>
@@ -636,7 +694,7 @@
         <p class="section-sub">Tampilan ringkas seluruh karya dalam portofolio ini</p>
         <div class="thumb-grid">
             <div class="thumb-card">
-                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=400&auto=format&fit=crop" alt="Brand Identity">
+                <img src="https://cdn.phototourl.com/free/2026-07-21-18dfad4f-9e26-44be-aef7-53685ec686a4.png" alt="Brand Identity">
                 <div class="thumb-info">
                     <span class="thumb-num">01</span>
                     <h4>Revitalisasi Brand Identity</h4>
@@ -652,7 +710,7 @@
                 </div>
             </div>
             <div class="thumb-card">
-                <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=400&auto=format&fit=crop" alt="Typography">
+                <img src="https://cdn.phototourl.com/free/2026-07-21-d34bdda8-51ab-457e-84c1-a384cdcc5807.png" alt="Typography">
                 <div class="thumb-info">
                     <span class="thumb-num">03</span>
                     <h4>Eksperimen Tipografi Poster</h4>
@@ -660,17 +718,18 @@
                 </div>
             </div>
             <div class="thumb-card">
-                <img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?q=80&w=400&auto=format&fit=crop" alt="UI Design">
+                <img src="https://cdn.phototourl.com/free/2026-07-21-a188c99f-94da-4bd8-8c16-ea03141d73c7.png" alt="Web Development">
                 <div class="thumb-info">
                     <span class="thumb-num">04</span>
-                    <h4>Mobile App Interface Design</h4>
-                    <span class="thumb-tool">Figma</span>
+                    <h4>Interactive Web Development</h4>
+                    <span class="thumb-tool">VS Code</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- ========== PAGE 11: EKSPLORASI VISUAL ========== -->
 <div class="page page-exploration">
     <div class="page-header">
         <span class="page-tag">EKSPLORASI VISUAL</span>
@@ -680,7 +739,7 @@
         <h2 class="section-h2">Studi & Eksperimen</h2>
         <p class="section-sub">Proses eksplorasi, sketsa, dan percobaan visual yang membentuk gaya desain personal</p>
         <div class="exploration-grid">
-            <div class="exp-card exp-wide">
+            <div class="exp-card">
                 <div>
                     <div class="exp-icon"><i class="fa-solid fa-swatchbook"></i></div>
                     <h3>Color Theory Exploration</h3>
@@ -696,9 +755,11 @@
                 </div>
             </div>
             <div class="exp-card">
-                <div class="exp-icon"><i class="fa-solid fa-font"></i></div>
-                <h3>Typography Study</h3>
-                <p>Eksplorasi klasifikasi huruf, kerning, leading, dan tracking untuk menciptakan hierarki visual yang optimal dalam berbagai konteks desain editorial.</p>
+                <div>
+                    <div class="exp-icon"><i class="fa-solid fa-font"></i></div>
+                    <h3>Typography Study</h3>
+                    <p>Eksplorasi klasifikasi huruf, kerning, leading, dan tracking untuk menciptakan hierarki visual yang optimal dalam berbagai konteks desain editorial.</p>
+                </div>
                 <div class="typo-demo">
                     <span style="font-family:'Syne'; font-size:1.1rem; font-weight:800; color:var(--ink);">Display Font</span>
                     <span style="font-family:'Plus Jakarta Sans'; font-size:0.85rem; color:var(--ink-muted);">Body Text Regular</span>
@@ -708,6 +769,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 12: NIRMANA & ELEMEN DESAIN ========== -->
 <div class="page page-nirmana">
     <div class="page-header">
         <span class="page-tag">FONDASI DESAIN</span>
@@ -749,6 +811,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 13: RIWAYAT PENDIDIKAN ========== -->
 <div class="page page-education">
     <div class="page-header">
         <span class="page-tag">REKAM JEJAK</span>
@@ -788,6 +851,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 14: PENCAPAIAN & NILAI ========== -->
 <div class="page page-values">
     <div class="page-header">
         <span class="page-tag">NILAI & KOMITMEN</span>
@@ -801,7 +865,7 @@
                 <div class="value-num">01</div>
                 <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
                 <h3>Purpose-Driven</h3>
-                <p>Setiap elemen desain hadir dengan alasan yang jelas. Tidak ada satu pun elemen yang ditambahkan tanpa kontribusi nyata terhadap pesan komunikasi.</p>
+                <p>Setiap elemen desain hadir dengan alasan yang jelas. Tidak ada satu pun elemen yang ditambahkan tanpa kontribusi nyata terhadap pesan.</p>
             </div>
             <div class="value-card">
                 <div class="value-num">02</div>
@@ -830,6 +894,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 15: KONTAK ========== -->
 <div class="page page-contact">
     <div class="page-header">
         <span class="page-tag">KOLABORASI</span>
@@ -840,33 +905,26 @@
             <div class="contact-intro-tag">Terbuka untuk Kolaborasi</div>
             <h2 class="contact-big-title">Mari<br>Berkarya<br><span>Bersama</span></h2>
             <p class="contact-desc">Saya sangat terbuka untuk proyek kolaborasi desain grafis, magang industri kreatif, atau sekadar bertukar opini mengenai tren perkembangan visual komunikasi saat ini.</p>
-            <div class="contact-cards">
-                <div class="ccard">
+            <div class="contact-cards" style="grid-template-columns: repeat(3, 1fr);">
+                <a href="mailto:daffa1juli2008@gmail.com" class="ccard" style="text-decoration: none; color: inherit;">
                     <div class="ccard-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div>
                         <div class="ccard-label">Surel</div>
                         <div class="ccard-val">daffa1juli2008@gmail.com</div>
                     </div>
-                </div>
+                </a>
+                <a href="https://instagram.com/dhagtaa_" target="_blank" rel="noopener noreferrer" class="ccard" style="text-decoration: none; color: inherit;">
+                    <div class="ccard-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <div>
+                        <div class="ccard-label">Instagram</div>
+                        <div class="ccard-val">@dhagtaa_</div>
+                    </div>
+                </a>
                 <div class="ccard">
                     <div class="ccard-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div>
                         <div class="ccard-label">Lokasi</div>
                         <div class="ccard-val">Jakarta, Indonesia</div>
-                    </div>
-                </div>
-                <div class="ccard">
-                    <div class="ccard-icon"><i class="fa-brands fa-instagram"></i></div>
-                    <div>
-                        <div class="ccard-label">Instagram</div>
-                        <div class="ccard-val">@tyraen__</div>
-                    </div>
-                </div>
-                <div class="ccard">
-                    <div class="ccard-icon"><i class="fa-brands fa-behance"></i></div>
-                    <div>
-                        <div class="ccard-label">Behance</div>
-                        <div class="ccard-val">Segera hadir</div>
                     </div>
                 </div>
             </div>
@@ -878,6 +936,7 @@
     </div>
 </div>
 
+<!-- ========== PAGE 16: BACK COVER ========== -->
 <div class="page page-backcover">
     <div class="cover-bg-grid"></div>
     <div class="cover-accent-bar"></div>
@@ -896,7 +955,7 @@
             <span>daffa1juli2008@gmail.com</span>
         </div>
         <div class="backcover-tools">
-            <span>Figma</span><span class="sep">·</span>
+            <span>Visual Studio Code</span><span class="sep">·</span>
             <span>Adobe Illustrator</span><span class="sep">·</span>
             <span>Adobe Photoshop</span>
         </div>
