@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio DKV Daffa Andhika K. — Dark Edition (Pink Theme)</title>
+    <title>Portofolio DKV Daffa Andhika K. — Dark Edition (Heat Waves Theme)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <style>
     /* ==========================================================================
        PRINT PORTFOLIO — 16 HAL A4 LANDSCAPE (COMPLETE, DARK & FIXED)
-       Premium DKV Edition — Daffa Andhika | Dhagtaa.Studio
+       Premium DKV Edition — Daffa Andhika | Thank You
        ========================================================================== */
  
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,22 +26,23 @@
         --paper:      rgba(255, 255, 255, 0.03); 
         --paper-warm: #0D0F14; 
         --rule:       rgba(255, 255, 255, 0.1); 
-        /* PINK THEME ACCENTS */
-        --red:    #F72585; /* Deep Pink */
-        --orange: #FF70A6; /* Soft Pink */
-        --grad:   linear-gradient(125deg, #F72585 0%, #FF70A6 100%);
+        /* HEAT WAVES THEME ACCENTS */
+        --red:    #FF2A7A; /* Neon Magenta */
+        --orange: #FF6F59; /* Sunset Orange */
+        --grad:   linear-gradient(125deg, #FF2A7A 0%, #FF6F59 100%);
         --f-display: 'Syne', sans-serif;
         --f-body:    'Plus Jakarta Sans', sans-serif;
     }
  
-    html { background: #050608; font-family: var(--f-body); }
+    /* Latar belakang diberi sentuhan dark midnight purple */
+    html { background: #0A0510; font-family: var(--f-body); }
     body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
  
     /* ── BASE PAGE SETUP (A4 LANDSCAPE) ── */
     .page {
         width: 297mm;
         height: 210mm;
-        background: linear-gradient(135deg, rgba(13, 15, 20, 0.98) 0%, rgba(20, 25, 35, 0.95) 100%);
+        background: linear-gradient(135deg, rgba(20, 10, 30, 0.98) 0%, rgba(35, 18, 50, 0.95) 100%);
         margin: 8mm auto;
         position: relative;
         overflow: hidden;
@@ -77,7 +78,7 @@
  
     /* ── PAGE 1: COVER ── */
     .page-cover { 
-        background: linear-gradient(135deg, rgba(13, 15, 20, 0.92) 30%, rgba(20, 25, 35, 0.75) 100%), 
+        background: linear-gradient(135deg, rgba(20, 10, 30, 0.92) 30%, rgba(35, 18, 50, 0.75) 100%), 
                     url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
@@ -89,7 +90,7 @@
         position: absolute; 
         inset: 0; 
         height: 100%;
-        background-image: linear-gradient(rgba(255, 112, 166, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 112, 166, 0.1) 1px, transparent 1px);
+        background-image: linear-gradient(rgba(255, 42, 122, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 42, 122, 0.15) 1px, transparent 1px);
         background-size: 15mm 15mm; 
         pointer-events: none; 
     }
@@ -287,7 +288,7 @@
     .edu-highlight { background: rgba(255,255,255,0.08); border-left: 4px solid var(--red); }
     .edu-badge { width: 10mm; height: 10mm; background: var(--grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 10pt; flex-shrink: 0; }
     .edu-badge-sm { background: var(--rule); color: var(--ink-light); font-size: 6pt; width: 8mm; height: 8mm; align-self: center; }
-    .edu-year-tag { font-family: var(--f-display); font-size: 8pt; font-weight: 700; color: #FFF; background: rgba(247, 37, 133, 0.6); padding: 1mm 3mm; border-radius: 10mm; position: absolute; right: 5mm; top: 5mm; }
+    .edu-year-tag { font-family: var(--f-display); font-size: 8pt; font-weight: 700; color: #FFF; background: rgba(255, 42, 122, 0.6); padding: 1mm 3mm; border-radius: 10mm; position: absolute; right: 5mm; top: 5mm; }
     .edu-body { flex: 1; }
     .edu-level { font-size: 7.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; margin-bottom: 0.5mm; }
     .edu-body h3 { font-size: 12pt; font-weight: 800; color: var(--ink); margin-bottom: 1mm; }
@@ -314,7 +315,7 @@
     .contact-big-title { font-family: var(--f-display); font-size: 38pt; font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 4mm; }
     .contact-big-title span { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .contact-desc { font-size: 9.5pt; color: var(--ink-muted); line-height: 1.6; max-width: 140mm; margin-bottom: 6mm; }
-    .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; width: 100%; margin-bottom: 6mm; }
+    .contact-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4mm; width: 100%; margin-bottom: 6mm; }
     .ccard { background: var(--paper); border: 1px solid var(--rule); border-radius: 3mm; padding: 3.5mm 5mm; display: flex; align-items: center; gap: 4mm; text-align: left; }
     .ccard-icon { width: 10mm; height: 10mm; background: rgba(255,255,255,0.05); border-radius: 50%; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 11pt; color: var(--orange); }
     .ccard-label { font-size: 6.5pt; font-weight: 700; color: var(--ink-light); text-transform: uppercase; }
@@ -324,7 +325,7 @@
  
     /* ── BACK COVER ── */
     .page-backcover { 
-        background: linear-gradient(135deg, rgba(13, 15, 20, 0.92) 30%, rgba(20, 25, 35, 0.75) 100%), 
+        background: linear-gradient(135deg, rgba(20, 10, 30, 0.92) 30%, rgba(35, 18, 50, 0.75) 100%), 
                     url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
@@ -772,12 +773,12 @@
                 <div>
                     <div class="exp-icon"><i class="fa-solid fa-swatchbook"></i></div>
                     <h3>Eksplorasi Warna Mood</h3>
-                    <p>Studi penggunaan palet warna emosional (pink, magenta, soft pink) untuk membangun atmosfer, energi, dan karakter visual yang kuat serta dramatis dalam desain.</p>
+                    <p>Studi penggunaan palet warna emosional (neon magenta, sunset orange, hazy yellow) untuk membangun atmosfer *golden hour* retro bergaya "Heat Waves" dalam desain.</p>
                 </div>
                 <div class="exp-visual">
-                    <div class="color-swatch" style="background:#F72585;" title="Pink"></div>
-                    <div class="color-swatch" style="background:#FF70A6;" title="Soft Pink"></div>
-                    <div class="color-swatch" style="background:#B5179E;" title="Magenta"></div>
+                    <div class="color-swatch" style="background:#FF2A7A;" title="Neon Magenta"></div>
+                    <div class="color-swatch" style="background:#FF6F59;" title="Sunset Orange"></div>
+                    <div class="color-swatch" style="background:#FFC857;" title="Hazy Yellow"></div>
                 </div>
             </div>
             <div class="exp-card">
@@ -944,12 +945,19 @@
             <div class="contact-intro-tag">Terbuka untuk Kolaborasi</div>
             <h2 class="contact-big-title">Mari<br>Berkarya<br><span>Bersama</span></h2>
             <p class="contact-desc">Saya sangat terbuka untuk proyek kolaborasi desain grafis, magang industri kreatif, atau sekadar bertukar opini mengenai tren perkembangan visual komunikasi saat ini.</p>
-            <div class="contact-cards" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="contact-cards" style="grid-template-columns: repeat(2, 1fr); gap: 4mm; width: 100%; margin-bottom: 6mm;">
                 <a href="mailto:daffa1juli2008@gmail.com" class="ccard" style="text-decoration: none; color: inherit;">
                     <div class="ccard-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div>
                         <div class="ccard-label">Surel</div>
                         <div class="ccard-val">daffa1juli2008@gmail.com</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="ccard" style="text-decoration: none; color: inherit;">
+                    <div class="ccard-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div>
+                        <div class="ccard-label">WhatsApp</div>
+                        <div class="ccard-val">+62 822-1097-6984</div>
                     </div>
                 </a>
                 <a href="https://instagram.com/dhagtaa_" target="_blank" rel="noopener noreferrer" class="ccard" style="text-decoration: none; color: inherit;">
@@ -981,7 +989,7 @@
     <div class="cover-accent-bar"></div>
     <div class="backcover-content">
         <div class="backcover-eyebrow">Portofolio Desain Komunikasi Visual · 2026</div>
-        <div class="backcover-logo">Dhagtaa<span>.Studio</span></div>
+        <div class="backcover-logo">Thank <span>You</span></div>
         <div class="backcover-divider"></div>
         <div class="backcover-quote">
             <p>"Kreativitas bukan bakat —<br>melainkan cara memandang dunia."</p>
